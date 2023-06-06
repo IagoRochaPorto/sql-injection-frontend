@@ -8,8 +8,8 @@ type Product = {
 }
 
 function App() {
-
   const [products, setProducts] = useState<Product[]>([])
+  const teste = new URLSearchParams(window.location.search)
 
   async function handleSubmit(category: string) {
     const response = await fetch(`http:////172.12.169.108:3000?category=${category}`)
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <>
+      {teste.get('search') && teste.get('search')}
       <form action='get'>
         <select name="category" id="1" defaultValue="" onChange={(event) => handleSubmit(event.target.value)}>
           <option value="" disabled>Selecione uma categoria</option>
